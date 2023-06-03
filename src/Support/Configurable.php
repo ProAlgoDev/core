@@ -21,11 +21,19 @@ trait Configurable
 
     private array $resolvedOptions = [];
 
+    /**
+     * @param array<string, mixed> $options
+     *
+     * @return array{0: class-string, 1: array<string, mixed>}
+     */
     public static function withOptions(array $options): array
     {
         return [static::class, $options];
     }
 
+    /**
+     * @param array<string, mixed> $options
+     */
     final public function configure(array $options): void
     {
         if ($this->optionsResolved) {
@@ -49,6 +57,9 @@ trait Configurable
         return $this->resolvedOptions[$key] ?? null;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function defaultOptions(): array
     {
         return [];

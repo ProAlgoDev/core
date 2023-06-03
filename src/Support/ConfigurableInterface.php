@@ -15,5 +15,8 @@ namespace RoachPHP\Support;
 
 interface ConfigurableInterface
 {
+    /**
+     * @param array<string, mixed> $options
+     */
     public function configure(array $options): void;
 }
